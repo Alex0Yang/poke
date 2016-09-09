@@ -62,6 +62,12 @@ describe "Game" do
     cards = convert_to_cards(cards_array)
     expect(game(cards)).to eq 9
   end
+
+  it "return 0 if Royal Flush exists in 7 cards" do
+    royal_flush = [["spade", "A"], ["spade","K"], ["spade", "Q"], ["spade", "J"], ["spade", "10"], ["diamond", "J"], ["club", "10"]]
+    royal_flash_cards = convert_to_cards(royal_flush)
+    expect(game(royal_flash_cards)).to eq 0
+  end
 end
 
 def convert_to_cards(cards_array)

@@ -1,6 +1,11 @@
 require 'poke'
 
 def game(pokes)
+  possible_board = pokes.combination(5).to_a
+  possible_board.map {|board| compute_result(board)}.min
+end
+
+def compute_result(pokes)
   duplicate_cards_sort = duplicate_cards(pokes).values.sort
   flush = flush?(pokes)
   straight = straight?(pokes)
